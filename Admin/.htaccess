@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "My Protected Area"
+AuthUserFile /var/www/html/poo/Admin/.htpasswd
+Require valid-user
