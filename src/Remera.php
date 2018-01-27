@@ -3,7 +3,7 @@
 namespace MisClases;
 
 require_once "Image.php";
-require_once "DolarCotizacion.php";
+//require_once "DolarCotizacion.php";
 
 class Remera
 {
@@ -11,15 +11,14 @@ class Remera
     protected $nombre;
     protected $description;
     protected $link;
-    protected $precio;
     protected $image;
     protected $talle;
     protected $color;
-    protected $dolarCotizacion;
+    protected $precio;
+    //protected $dolarCotizacion;
 
 
-    public function __construct($id, $nombre, $description, $link, $image, 
-                                $talle, $color, $precio, DolarCotizacion $dolarCotizacion )
+    public function __construct($id, $nombre, $description, $link, $image, $talle, $color, $precio )
     {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -29,7 +28,7 @@ class Remera
         $this->image = $image;
         $this->talle = $talle;
         $this->color = $color;
-	    $this->dolarCotizacion = $dolarCotizacion;
+	    //$this->dolarCotizacion = $dolarCotizacion;
     }
 
 
@@ -38,7 +37,7 @@ class Remera
         $img = new Image();
         $img->setDirectorio($directorio);
         $img->setFileName($this->image);
-        $dolar = new DolarCotizacion();
+        //$dolar = new DolarCotizacion();
         $out = sprintf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
             $this->id,
             $this->nombre,
@@ -47,8 +46,8 @@ class Remera
             $img->getImg(),
             $this->talle,
             $this->color,
-            $this->dolarCotizacion->ConvertirOficial($this->precio)
-        );
+            $this->precio);
+            //$this->dolarCotizacion->ConvertirOficial($this->precio
         return $out;
     }
 

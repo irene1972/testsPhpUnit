@@ -19,7 +19,10 @@
         strict="false"
         verbose="false"
         >
-
+    <php>
+        <server name="SERVER_PORT" value="443" />
+        <server name="HTTP_HOST" value="http://local.poo.com/" />
+    </php>
     <testsuites>
         <testsuite name="AllTests">
         <directory>tests</directory>
