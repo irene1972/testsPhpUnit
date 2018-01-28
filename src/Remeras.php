@@ -27,7 +27,7 @@ class Remeras extends ORM
         while ($row = mysqli_fetch_object($list)) {
                 $miRemera = new Remera($row->id, $row->Nombre, $row->Descripcion,
                                            $row->Link, $row->Image, $row->Talle, $row->Color, 
-                                           $row->Precio);
+                                           $row->Precio, new DolarCotizacion());
                 $this->listRemeras[]  = $miRemera;
             }
         return $this->listRemeras;

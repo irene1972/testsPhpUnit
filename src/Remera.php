@@ -3,7 +3,7 @@
 namespace MisClases;
 
 require_once "Image.php";
-//require_once "DolarCotizacion.php";
+require_once "DolarCotizacion.php";
 
 class Remera
 {
@@ -15,10 +15,10 @@ class Remera
     protected $talle;
     protected $color;
     protected $precio;
-    //protected $dolarCotizacion;
+    protected $DolarCotizacion;
 
 
-    public function __construct($id, $nombre, $description, $link, $image, $talle, $color, $precio )
+    public function __construct($id, $nombre, $description, $link, $image, $talle, $color, $precio, DolarCotizacion $DolarCotizacion )
     {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -28,7 +28,7 @@ class Remera
         $this->image = $image;
         $this->talle = $talle;
         $this->color = $color;
-	    //$this->dolarCotizacion = $dolarCotizacion;
+	    $this->DolarCotizacion = $DolarCotizacion;
     }
 
 
@@ -46,8 +46,8 @@ class Remera
             $img->getImg(),
             $this->talle,
             $this->color,
-            $this->precio);
-            //$this->dolarCotizacion->ConvertirOficial($this->precio
+            //$this->precio,
+            $this->DolarCotizacion->ConvertirOficial($this->precio));
         return $out;
     }
 
